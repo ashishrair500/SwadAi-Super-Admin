@@ -1,0 +1,43 @@
+# SuperAdmin Frontend Implementation Guide
+
+This document defines the logical flows, pages, and API integrations for the SuperAdmin role.
+
+## 1. Authentication Flow
+- **Routes:** `/auth/login`, `/auth/signup`
+- **APIs:** `POST /api/auth/superadmin/signup`, `POST /api/auth/superadmin/login`, `GET /api/auth/superadmin/me`, `POST /api/auth/superadmin/refresh`
+- **Logic:** Token storage, session verification, and automatic refresh interceptors.
+
+## 2. Dashboard Flow
+- **Route:** `/dashboard`
+- **APIs:** `GET /api/superadmin/restaurants/stats`, `GET /api/superadmin/restaurants/popular`, `GET /api/superadmin/restaurants/search`
+- **Features:** Stats cards, popular list, global search.
+
+## 3. Restaurant Listing Flow
+- **Route:** `/restaurants`
+- **APIs:** `GET /api/superadmin/restaurants`, filters for city/status, `PATCH` for status/popularity, `DELETE`.
+- **Features:** Data table, filtering sidebar, quick actions.
+
+## 4. Restaurant Onboarding Flow
+- **Route:** `/restaurants/new`
+- **APIs:** `POST /api/superadmin/restaurants`
+- **Steps:** Multi-field form for restaurant metadata.
+
+## 5. Restaurant Admin Onboarding Flow
+- **Route:** `/restaurants/:id/onboard-admin`
+- **APIs:** `POST /api/superadmin/restaurants/staff/onboard-restaurant-admin`
+- **Purpose:** Assign initial login credentials for the restaurant.
+
+## 6. Restaurant Details & Edit Flow
+- **Route:** `/restaurants/:id`
+- **APIs:** `GET`, `PUT`, `PATCH` for restaurant updates.
+- **Features:** Read-only view with edit mode toggle.
+
+## 7. Restaurant Staff Management Flow
+- **Route:** `/restaurants/:id/staff`
+- **APIs:** `PUT`, `PATCH` for staff updates and suspension.
+
+## Interceptor & State Management
+- **Auth:** Dynamic `Authorization` header.
+- **Refresh:** 401 interceptor for seamless token renewal.
+- **Guards:** Role-based routing (`ROLE_SUPER_ADMIN`).
+- **Feedback:** Global Toast system using API `message` fields.

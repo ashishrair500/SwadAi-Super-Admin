@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Management | The Editorial Enterprise</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#57657a",
+              "tertiary": "#003e29",
+              "secondary-container": "#d5e3fc",
+              "secondary-fixed-dim": "#b9c7df",
+              "error-container": "#ffdad6",
+              "background": "#faf8ff",
+              "surface-container-highest": "#dae2fd",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#acb9ff",
+              "surface-container-high": "#e2e7ff",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-tertiary-fixed-variant": "#005236",
+              "on-secondary-fixed-variant": "#3a485b",
+              "inverse-surface": "#283044",
+              "inverse-primary": "#b9c3ff",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-container-lowest": "#ffffff",
+              "surface-variant": "#dae2fd",
+              "primary-fixed-dim": "#b9c3ff",
+              "on-error": "#ffffff",
+              "surface-dim": "#d2d9f4",
+              "primary-fixed": "#dde1ff",
+              "secondary-fixed": "#d5e3fc",
+              "on-primary-fixed": "#001356",
+              "on-surface": "#131b2e",
+              "outline-variant": "#c5c5d4",
+              "surface-container": "#eaedff",
+              "on-background": "#131b2e",
+              "outline": "#757683",
+              "on-primary-fixed-variant": "#283e9a",
+              "surface-tint": "#4257b3",
+              "error": "#ba1a1a",
+              "on-tertiary-container": "#42d59a",
+              "primary": "#102b88",
+              "surface": "#faf8ff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f2f3ff",
+              "inverse-on-surface": "#eef0ff",
+              "on-error-container": "#93000a",
+              "primary-container": "#2e44a0",
+              "tertiary-fixed": "#6ffbbe",
+              "on-surface-variant": "#454652",
+              "tertiary-container": "#00583b",
+              "secondary": "#515f74",
+              "surface-bright": "#faf8ff",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed": "#002113"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-manrope { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Execution -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col h-screen w-64 border-r-0 bg-slate-50 dark:bg-slate-900 font-manrope tracking-tight text-sm font-semibold">
+<div class="p-8">
+<span class="text-xl font-bold tracking-wider text-blue-900 dark:text-blue-100 font-manrope">Editorial Admin</span>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 mt-1">Restaurant Enterprise</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Dashboard Tab (Inactive) -->
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Restaurants Tab (Active) -->
+<a class="flex items-center px-4 py-3 rounded-lg text-blue-900 dark:text-blue-400 font-bold border-r-4 border-blue-900 dark:border-blue-400 bg-slate-100 dark:bg-slate-800/50 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="storefront">storefront</span>
+<span>Restaurants</span>
+</a>
+<!-- Analytics Tab (Inactive) -->
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<!-- Settings Tab (Inactive) -->
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="p-4 bg-slate-100 dark:bg-slate-800 m-4 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="SuperAdmin Profile Picture" class="w-full h-full object-cover" data-alt="professional portrait of a senior executive in a dark suit with a confident smile and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3n3Cv2p_Qzqm09XWuv0sLndeOlFkI1EfOgeOyG3A_EHaNz4OtAyOisvY8ciy48AblkUaGyzJGVijOBT3lVyAFQc0VRWjFC0xQkhKb9G3qby8-nS_NrtDfozEebltcxAGFpfMHsERzDy-58Zor7Ec3BRmLyxcqOtOuoPazL-NnZmdF0JbQFa14rGfXXgfQl5kGb2GV_1T3i9VqyDWFSR899RyrmZBcsno3pEaaCH3WccI4U3FTIKpWl0ZJzUcYpm-GQpiJVgY5Knk"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface">Admin User</span>
+<span class="text-[10px] text-on-surface-variant">SuperAdmin</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Execution -->
+<header class="sticky top-0 z-30 w-full flex justify-between items-center px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none font-manrope text-base">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-0 rounded-lg text-sm focus:ring-2 focus:ring-blue-500/20 transition-all outline-none" placeholder="Search enterprise restaurants..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant/30 mx-2"></div>
+<button class="text-sm font-bold text-primary dark:text-blue-400 hover:underline">Support</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-10 min-h-screen">
+<!-- Header Section -->
+<section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs font-medium text-on-surface-variant mb-3 uppercase tracking-widest">
+<span>Directory</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Restaurant Fleet</span>
+</nav>
+<h1 class="text-4xl font-extrabold text-on-surface font-manrope tracking-tight">Fleet Overview</h1>
+<p class="text-on-surface-variant mt-2 font-medium">Manage and audit 128 active restaurant nodes across the enterprise network.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-high text-on-primary-fixed-variant font-bold rounded-lg text-sm hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
+                    Export CSV
+                </button>
+<button class="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg text-sm shadow-lg shadow-primary/20 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Add New Restaurant
+                </button>
+</div>
+</section>
+<!-- Filters Section (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between group hover:bg-surface-container-low transition-colors duration-300">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Region Filter</span>
+<select class="mt-4 bg-transparent border-0 font-manrope font-bold text-lg p-0 focus:ring-0 text-primary cursor-pointer">
+<option>All Cities</option>
+<option>New York</option>
+<option>San Francisco</option>
+<option>Chicago</option>
+<option>London</option>
+</select>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between group hover:bg-surface-container-low transition-colors duration-300">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Status Node</span>
+<select class="mt-4 bg-transparent border-0 font-manrope font-bold text-lg p-0 focus:ring-0 text-primary cursor-pointer">
+<option>All Statuses</option>
+<option>Active</option>
+<option>Inactive</option>
+<option>Maintenance</option>
+</select>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between group hover:bg-surface-container-low transition-colors duration-300">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Cuisine Type</span>
+<select class="mt-4 bg-transparent border-0 font-manrope font-bold text-lg p-0 focus:ring-0 text-primary cursor-pointer">
+<option>All Types</option>
+<option>Fine Dining</option>
+<option>Casual</option>
+<option>Bakery</option>
+</select>
+</div>
+<div class="bg-primary p-6 rounded-xl shadow-lg flex flex-col justify-center items-center text-center">
+<span class="text-primary-fixed text-3xl font-extrabold font-manrope">128</span>
+<span class="text-on-primary-container text-[10px] font-bold uppercase tracking-widest mt-1">Total Establishments</span>
+</div>
+</section>
+<!-- Data Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-[11px] font-bold uppercase tracking-widest border-b border-outline-variant/20">
+<th class="px-8 py-5">Restaurant Identity</th>
+<th class="px-6 py-5">Geography</th>
+<th class="px-6 py-5">Classification</th>
+<th class="px-6 py-5">System Status</th>
+<th class="px-6 py-5 text-right">Rating Index</th>
+<th class="px-8 py-5 text-right">Administrative Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low transition-colors duration-200">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img alt="The Gilded Truffle" class="w-full h-full object-cover" data-alt="interior of a luxury fine dining restaurant with gold accents and velvet seating in soft ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1mcOebEjAYxIu0iMWLpI2HI2I9Ccdc90gZ6LEQSaOhDBsGwMmDIxeo3o-CFdvlfhHtEJ2G2PR9mhTaQCL4jXo-csuQ0WzaJZJ7Qhzt2ENws6eE7_ALckNuJ0RZ698BXpM6qxRZt46odvR-pzaTfKv5YCoghKWn58411K1j92ytNwivJSIMXBVqnMQjLKpZraPy_1xApBsyoyl-X3K98gRv5r11QlKGzBhGyMyjPW2YVBbfWWilDhVkac_iiMpzG4Ef7hIvVpyeS8"/>
+</div>
+<div>
+<p class="font-manrope font-bold text-on-surface text-base">The Gilded Truffle</p>
+<p class="text-xs text-on-surface-variant font-medium">UID: RT-4492-X</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-on-surface">New York, NY</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase text-on-primary-fixed-variant">Fine Dining</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">
+<span class="w-1.5 h-1.5 bg-on-tertiary-container rounded-full mr-1.5"></span>
+                                Active
+                            </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-1">
+<span class="text-sm font-bold text-on-surface">4.9</span>
+<span class="material-symbols-outlined text-amber-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high text-amber-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="grade" style="font-variation-settings: 'FILL' 1;">grade</span>
+</button>
+<div class="w-10 h-5 bg-tertiary-container rounded-full relative cursor-pointer flex items-center px-1">
+<div class="w-3 h-3 bg-on-tertiary-container rounded-full absolute right-1"></div>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error-container text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low transition-colors duration-200">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img alt="Harbor Bakery" class="w-full h-full object-cover" data-alt="close-up of fresh artisan sourdough bread and pastries on a wooden table with morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBREeKqerFKRegeKz_HMqMBzBsmiCn3ZFd-VnjzBZDI6Zn502JoBy1ZMw8Rx7cqub3_YCHWgmWrCWw7CclZm5f--e5utQZa0BWUQOsK30r5QFsJBU7adZn2nvon2xaA8Bxh83UHLgvlW8DZ7wkpMgZl2cd_eEMcZlrip0oON1Zxk_CSb9mL8xIfXf3cmNtHa7k9rAYbJSv5GqQLAIRWKRNh5xQTGxXArf1op_CMv6RkstFCBKWGnLJxhBuqKS3K4qdf-lZvK68JUtw"/>
+</div>
+<div>
+<p class="font-manrope font-bold text-on-surface text-base">Harbor Bakery</p>
+<p class="text-xs text-on-surface-variant font-medium">UID: RT-2108-A</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-on-surface">San Francisco, CA</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase text-on-primary-fixed-variant">Bakery</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 bg-slate-200 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-tighter">
+<span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-1.5"></span>
+                                Inactive
+                            </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-1">
+<span class="text-sm font-bold text-on-surface">4.5</span>
+<span class="material-symbols-outlined text-amber-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high text-outline transition-colors">
+<span class="material-symbols-outlined" data-icon="grade">grade</span>
+</button>
+<div class="w-10 h-5 bg-outline-variant rounded-full relative cursor-pointer flex items-center px-1">
+<div class="w-3 h-3 bg-white rounded-full absolute left-1"></div>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error-container text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low transition-colors duration-200">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img alt="Noodle Bar Express" class="w-full h-full object-cover" data-alt="vibrant neon-lit modern noodle bar with chefs working in open kitchen behind steaming pots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp_fFbYszktdOwDmtc81BaQJj6OYC3M6RsJLz_h77JczpBF2YZhOIe3_X844we8aFRrzWXRRBTI6zjzrF4yHKxSK4ZveoID6lVl6NQvdVQZ0-v32lG2VV_7xerpPLlBuRHeTJh8sySwmzcnkSUnVkMvoKSLzkG6Q5aNW4HH0ZhwjV68MaRv7RkbtV5HvjLK_tw_8EAbT2YRgcTL0rW_XAYv_fxen4P3HTTyCTAFX3bawWiDFfQJ-7ssfsKrwfLLBdfhk0eoBiezzA"/>
+</div>
+<div>
+<p class="font-manrope font-bold text-on-surface text-base">Noodle Bar Express</p>
+<p class="text-xs text-on-surface-variant font-medium">UID: RT-9931-Q</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium text-on-surface">Chicago, IL</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase text-on-primary-fixed-variant">Casual</span>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">
+<span class="w-1.5 h-1.5 bg-on-tertiary-container rounded-full mr-1.5"></span>
+                                Active
+                            </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-1">
+<span class="text-sm font-bold text-on-surface">4.2</span>
+<span class="material-symbols-outlined text-amber-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high text-amber-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="grade" style="font-variation-settings: 'FILL' 1;">grade</span>
+</button>
+<div class="w-10 h-5 bg-tertiary-container rounded-full relative cursor-pointer flex items-center px-1">
+<div class="w-3 h-3 bg-on-tertiary-container rounded-full absolute right-1"></div>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-error-container text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Footer -->
+<div class="px-8 py-5 bg-surface-container-lowest border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface-variant italic">Showing entries 1 to 10 of 128 results</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="first_page">first_page</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center mx-2 gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high font-bold text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high font-bold text-xs">3</button>
+<span class="px-1 text-outline-variant">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high font-bold text-xs">13</button>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="last_page">last_page</span>
+</button>
+</div>
+</div>
+</div>
+<!-- System Stats / Footer Info -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="synced">sync</span>
+<h3 class="font-manrope font-bold text-sm">Last Sync</h3>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">Enterprise database synchronized 4 minutes ago via global relay.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="shield_check">shield</span>
+<h3 class="font-manrope font-bold text-sm">Security Audit</h3>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">All nodes passing L1 compliance checks. Next audit scheduled in 48h.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-error" data-icon="report">report</span>
+<h3 class="font-manrope font-bold text-sm">Network Health</h3>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">99.9% uptime. 1 node currently under scheduled maintenance.</p>
+</div>
+</section>
+</main>
+</body></html>

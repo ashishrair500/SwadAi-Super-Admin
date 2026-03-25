@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Management | The Editorial Enterprise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#57657a",
+              "tertiary": "#003e29",
+              "secondary-container": "#d5e3fc",
+              "secondary-fixed-dim": "#b9c7df",
+              "error-container": "#ffdad6",
+              "background": "#faf8ff",
+              "surface-container-highest": "#dae2fd",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#acb9ff",
+              "surface-container-high": "#e2e7ff",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-tertiary-fixed-variant": "#005236",
+              "on-secondary-fixed-variant": "#3a485b",
+              "inverse-surface": "#283044",
+              "inverse-primary": "#b9c3ff",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-container-lowest": "#ffffff",
+              "surface-variant": "#dae2fd",
+              "primary-fixed-dim": "#b9c3ff",
+              "on-error": "#ffffff",
+              "surface-dim": "#d2d9f4",
+              "primary-fixed": "#dde1ff",
+              "secondary-fixed": "#d5e3fc",
+              "on-primary-fixed": "#001356",
+              "on-surface": "#131b2e",
+              "outline-variant": "#c5c5d4",
+              "surface-container": "#eaedff",
+              "on-background": "#131b2e",
+              "outline": "#757683",
+              "on-primary-fixed-variant": "#283e9a",
+              "surface-tint": "#4257b3",
+              "error": "#ba1a1a",
+              "on-tertiary-container": "#42d59a",
+              "primary": "#102b88",
+              "surface": "#faf8ff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f2f3ff",
+              "inverse-on-surface": "#eef0ff",
+              "on-error-container": "#93000a",
+              "primary-container": "#2e44a0",
+              "tertiary-fixed": "#6ffbbe",
+              "on-surface-variant": "#454652",
+              "tertiary-container": "#00583b",
+              "secondary": "#515f74",
+              "surface-bright": "#faf8ff",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed": "#002113"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Execution -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col bg-slate-50 dark:bg-slate-900 h-screen w-64 border-r-0 font-manrope tracking-tight text-sm font-semibold">
+<div class="p-8">
+<span class="text-xl font-bold tracking-wider text-blue-900 dark:text-blue-100 font-manrope">Editorial Admin</span>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Dashboard Tab (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Restaurants Tab (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-blue-900 dark:text-blue-400 font-bold border-r-4 border-blue-900 dark:border-blue-400 bg-slate-100 dark:bg-slate-800/50 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>Restaurants</span>
+</a>
+<!-- Analytics Tab (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<!-- Settings Tab (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 scale-98 active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="p-6 mt-auto flex items-center gap-3 bg-slate-100 dark:bg-slate-800">
+<img alt="SuperAdmin Profile Picture" class="w-10 h-10 rounded-lg object-cover" data-alt="Professional portrait of a male executive in a navy blue suit with a neutral office background and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoy4di8ZP4xGL0TZjczjFvbJWLLFsFw7vH7tbmSQieWm3S5htgHzCtxeIqRubWyd8tFCMRyK3OM7uOxEKIQtgisPEYFj_3GIOFRIA9gRC9uXwk_YOMvS7ZWCvDnvhK0Bi3VnyOvv8VWgjpHTSMRfdU7AHghlPG9Zp1b24TZgxi5YEucpvnrQhChqrRjgY9rWg7wVYP2g0TCfv-8fIzbrtN_YB7ZFtP3EGQc3b6oEmdEy29TzOuJkdn51_PmjZHo3h2buW0NjUq_WQ"/>
+<div>
+<p class="text-blue-900 dark:text-blue-100 font-bold leading-none">SuperAdmin</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Restaurant Enterprise</p>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Execution -->
+<header class="sticky top-0 z-30 w-full flex justify-between items-center px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-blue-500/20 rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-50 dark:bg-slate-900 border-none pl-10 pr-4 py-2 rounded-lg text-sm focus:ring-0" placeholder="Search enterprise..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<span class="text-sm font-manrope font-semibold text-blue-900 dark:text-blue-400 cursor-pointer">Support</span>
+</div>
+<img alt="SuperAdmin Avatar" class="w-8 h-8 rounded-full border-2 border-primary/10 object-cover" data-alt="Professional avatar of an executive in business attire against a blurred architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyjP287TTnbnHKPRVBnU6DVkDOR7qX8Rzf4lLUzN-WqCie93DvaVJia65E9KCX4H0bQ2HuabKWXMj3C9kinq2ugfFen-CkUY9IYOqZ_WX0WJ_DJhXRCPW7rqI7wOF__2hdLuMbysxzomXW9wRGchOjQgFq9Zh08J-vqjmF9AHI8mTWiJc3yUkM4bKsDD7TY70IhwVLieZWvhoMiU3mFSeIgvzNQPHQ2-mn89uCYMcagJNXZIELUP0eCWldYSXTnbAk8OkZFiv0_Po"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 max-w-7xl mx-auto space-y-10">
+<!-- Hero Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<nav class="flex gap-2 text-xs font-medium text-on-surface-variant uppercase tracking-widest">
+<span>Restaurants</span>
+<span>/</span>
+<span class="text-primary">Management</span>
+</nav>
+<div class="flex items-center gap-4">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">L'Artiste Brasserie</h1>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container text-xs font-bold rounded-full uppercase tracking-tighter">Active</span>
+</div>
+<p class="text-on-surface-variant max-w-xl font-body">Flagship location in Manhattan’s Upper East Side. Specializing in neo-classical French cuisine with an editorial presentation style.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-on-primary-fixed-variant rounded-lg font-bold text-sm hover:bg-surface-container-highest transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">visibility</span>
+                    Preview Site
+                </button>
+<button class="px-6 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">save</span>
+                    Save Changes
+                </button>
+</div>
+</section>
+<!-- Bento Tabs & Content -->
+<section class="space-y-6">
+<!-- Functional Tabbed Interface -->
+<div class="flex gap-1 border-b-0 p-1 bg-surface-container-low rounded-xl w-fit">
+<button class="px-8 py-3 rounded-lg font-bold text-sm transition-all bg-surface-container-lowest text-primary shadow-sm">Details</button>
+<button class="px-8 py-3 rounded-lg font-bold text-sm transition-all text-on-surface-variant hover:bg-surface-container-high/50">Staff</button>
+<button class="px-8 py-3 rounded-lg font-bold text-sm transition-all text-on-surface-variant hover:bg-surface-container-high/50">Menu Preview</button>
+<button class="px-8 py-3 rounded-lg font-bold text-sm transition-all text-on-surface-variant hover:bg-surface-container-high/50">Analytics</button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Profile Section (Left) -->
+<div class="col-span-12 lg:col-span-7 space-y-6">
+<!-- Basic Info Card -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-xl font-bold tracking-tight text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                                Restaurant Profile
+                            </h2>
+<div class="flex items-center gap-2 bg-surface-container-low p-1 rounded-full">
+<span class="text-xs font-bold px-3 text-on-surface-variant">View Only</span>
+<button class="bg-primary text-on-primary text-[10px] font-bold px-3 py-1 rounded-full shadow-sm">Edit Mode</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12">
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Legal Name</label>
+<p class="text-on-surface font-medium">L'Artiste Gastronomy Group LLC</p>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Cuisine Type</label>
+<p class="text-on-surface font-medium">Modern French, Fine Dining</p>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Primary Contact</label>
+<p class="text-on-surface font-medium">Jean-Luc Moreau</p>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Contact Email</label>
+<p class="text-on-surface font-medium">admin@lartiste-nyc.com</p>
+</div>
+<div class="col-span-2 space-y-1">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Business Address</label>
+<p class="text-on-surface font-medium">742 Madison Avenue, 4th Floor, New York, NY 10065</p>
+</div>
+</div>
+</div>
+<!-- Visual Assets Bento -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden p-2 group shadow-sm">
+<img alt="Main Entrance" class="w-full h-48 object-cover rounded-md mb-4" data-alt="Elegant restaurant entrance with brass fixtures, dark navy awning, and warm interior lighting glowing through large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdaTS1c8kpQGYWx2EhebOEhxOvv2HbMSqfLq4AvO2fXSy60iGshbC4OBAcRxiFiOdCuiHU7yayWgNPEE3Kk1rRkObjx5px-PvvxtUV5615fYMVYR9JfE0gVXw_QbJj4dUw8zFCk4rfpZImx6-MMbqdwEaWJ_-9rXgsnEAIV15T3ClVQ49n0qgXovCSqkCZoc4IRjw8qJ1jT-lYHj_2ZmzMUelLCQzxAznQ_VTX9yt68v-AZJUqAltd0fWFfORs-DOG-CQcBDWs9Ss"/>
+<div class="px-4 pb-4 flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface">Cover Image</span>
+<button class="text-primary font-bold text-xs uppercase tracking-tighter">Replace</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden p-2 group shadow-sm">
+<img alt="Dining Room" class="w-full h-48 object-cover rounded-md mb-4" data-alt="Interior of a luxury dining room with velvet seating, white tablecloths, and sophisticated architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEX6N-Y-sqkImhpNCuvE37J7H92qyP81yddbETyp4BxyxgoDR6TzR0Ar4N7xftTbgHpYDmpfPUBy7BhKVPCs1PBN5YqiITqPMBEIJpLDaos1ZJl87_LHad9IBOxC7cfy-sc1eytdFINTJIT8rc9xFHkQ0wXvx5dy9wGRgPJRsu-VEWdcRhXkka8qnanWOuhmuFhOZHLaMIwv7YbcpT3RmDxspbvjpLHlqGuWGWN_zSVb76m2UY0uhnrRo3Z8eiXbMOfckI3qYGuyM"/>
+<div class="px-4 pb-4 flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface">Gallery #1</span>
+<button class="text-primary font-bold text-xs uppercase tracking-tighter">Replace</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Staff Management (Right) -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm h-full flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-xl font-bold tracking-tight text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">group</span>
+                                Restaurant Admins
+                            </h2>
+<button class="p-2 bg-primary/5 text-primary rounded-lg hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">person_add</span>
+</button>
+</div>
+<!-- Staff List -->
+<div class="space-y-4 flex-1">
+<!-- Admin Item 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white">
+<img alt="Staff Avatar" class="w-full h-full object-cover" data-alt="Portrait of a young professional chef in white uniform with a friendly expression and blurred kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6uIKKNtxVcxjR8An6dIhGfXsJWSakik7hVUNi9PqMlqIyoOYHvMXFdiQOOhPFlErYui5DKYjnMK_K1Il5UEJZyOS249Ce_5qt37jOxPeiPnxOsDeJCOvjKAmNnnt5G9opQ-91CqWsgnUcgY1NDR34cNcmxBjbP1LcbA42JawEWmnBOQmqHtV8fMxIqMJrJNSFlVIEPpTPgooBIt0V8ZhvZr7cqxWEC2-T7jkxdKLvwbptuUhn2IZ4oqOHoUAeUP6Rx5I30dvHWus"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Jean-Luc Moreau</p>
+<p class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tight">Executive Owner</p>
+</div>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors" title="Edit Profile">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error transition-colors" title="Suspend">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</div>
+<!-- Admin Item 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white">
+<img alt="Staff Avatar" class="w-full h-full object-cover" data-alt="Headshot of a confident woman in a professional blazer with a clean minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlXw7jTjJwAbpKhv7voMz99xUoe6A31iRV_iFLgdKHkMr2u6-juaVO96rrqauMoUX7oQ_R2Kj6zpwBZEhNoNiDChorReRfv-pMK7v-DrPMakBn00M_2EEgX2GToTXiqCZbLFSPNhBmUPEf48yzJA4rqcSvEA10N8UMjalwBp7aokYFqSkUqKquRfyy0Qi015KLHs64OQw-C8WqYzJIOtmjuZQmiEjqelJYXWDiCQCSmCMCVrRu7ktR7ylg8_vly9qZxpLCj-Wx2WE"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Sophie Laurent</p>
+<p class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tight">General Manager</p>
+</div>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors" title="Edit Profile">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error transition-colors" title="Suspend">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</div>
+<!-- Admin Item 3 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white">
+<img alt="Staff Avatar" class="w-full h-full object-cover" data-alt="Portrait of a smiling middle-aged man in a dark polo shirt with soft outdoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeKeVkctv8WgQ7iuR7ee5nmzOLV4O6V2-UpFbIDB6jCUhdvD5_Srl_SILmaJ5cNTEs1HuT5x5AvgM_wVKzgsfdEuZ-ppxI8e1kJv2tnbwpeqT-oToYS2YrDzdWY62sk9eWYr_sBS7ep3p6qCq06iVIjJtyLMFE2dfyf-k8PgZZ-nxqFBypiQNoTi5BAMSNdssNYI93I8xMJbCFa1a4K5P6qu7hHvkOKGsjjCtK67V9XXcmLKCUCb0nwfypB2PhOgR1HMWGFsiYhCU"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Markus Vane</p>
+<p class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tight">Ops Manager</p>
+</div>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-on-surface-variant hover:text-primary transition-colors" title="Edit Profile">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error transition-colors" title="Suspend">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/10">
+<button class="w-full py-3 bg-primary/10 text-primary font-bold text-sm rounded-lg hover:bg-primary hover:text-on-primary transition-all">
+                                Assign New Admin
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats/Summary Section -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-low p-6 rounded-lg">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Monthly Traffic</p>
+<p class="text-2xl font-extrabold text-on-surface">12,480</p>
+<div class="flex items-center gap-1 mt-2 text-tertiary-container text-xs font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+14.2%</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Reservation Rate</p>
+<p class="text-2xl font-extrabold text-on-surface">88%</p>
+<div class="flex items-center gap-1 mt-2 text-tertiary-container text-xs font-bold">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Optimal</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Review Index</p>
+<p class="text-2xl font-extrabold text-on-surface">4.9/5</p>
+<div class="flex items-center gap-1 mt-2 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">star</span>
+<span>Top Tier</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Last Updated</p>
+<p class="text-2xl font-extrabold text-on-surface">Today</p>
+<div class="flex items-center gap-1 mt-2 text-on-surface-variant text-xs font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>14:32 PM</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
